@@ -5,7 +5,7 @@ description: "graphify: turn a codebase or folder (code, docs, papers, images, v
 
 # /graphify
 
-Source: Graphify-Labs/graphify v0.9.115 @3671f31 (MIT/Apache-2.0), Windows variant. Needs the `graphify` CLI (`uv tool install graphifyy`, PyPI name has double y). Do NOT run `graphify install`: this skill is managed in ~/agent-skills. To update, copy `graphify/skill-windows.md` and `graphify/skills/windows/references/` from a newer release.
+Source: Graphify-Labs/graphify v0.9.115 @3671f31 (MIT/Apache-2.0), Windows variant (on Linux/macOS this folder is not linked; graphify's own `graphify install` provides the POSIX skill there). Needs the `graphify` CLI (`uv tool install graphifyy`, PyPI name has double y). Do NOT run `graphify install`: on Windows this skill is managed in the user's `agent-skills` repo. To update, copy `graphify/skill-windows.md` and `graphify/skills/windows/references/` from a newer release.
 
 Turn any folder of files into a navigable knowledge graph with community detection, an honest audit trail, and three outputs: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.
 

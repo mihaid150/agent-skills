@@ -42,10 +42,16 @@ Write it to a file in the scratchpad (never inline-quote a long prompt). Every o
 6. **Report shape**: "List files changed, commands run with their output, and anything left undone."
 7. **Stop**: "Do exactly this. Do not commit, push, or start follow-up work."
 
-## Launch (PowerShell)
+## Launch
 
 ```powershell
+# Windows (PowerShell)
 Get-Content $ORDER -Raw | codex exec -m gpt-5.6-sol -c 'model_reasoning_effort="medium"' --sandbox workspace-write -C $REPO -o $OUT -
+```
+
+```bash
+# Linux/macOS (bash)
+codex exec -m gpt-5.6-sol -c 'model_reasoning_effort="medium"' --sandbox workspace-write -C "$REPO" -o "$OUT" - < "$ORDER"
 ```
 
 - `$ORDER`: the work-order file. `$OUT`: where Codex writes its final message. `$REPO`: the working root.

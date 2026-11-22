@@ -15,7 +15,7 @@ allowed-tools:
 
 # Floorplan
 
-Source: haydenschmitty/floorplan v0.11.0 @94f81b4 (MIT). Needs Node >= 18, no other dependencies. Managed in ~/agent-skills; to update, copy `skills/floorplan/` from a newer release.
+Source: haydenschmitty/floorplan v0.11.0 @94f81b4 (MIT). Needs Node >= 18, no other dependencies. Managed in the user's `agent-skills` repo; to update, copy `skills/floorplan/` from a newer release.
 
 You produce `floorplan/` at the codebase root: a floorplan of the app that someone new can read like a system diagram. Every card shows a human name and a one-line description, with the real path in small type underneath.
 

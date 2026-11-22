@@ -16,7 +16,7 @@ Transcript behavior:
 ## Setup
 
 ```bash
-cd ~/agent-skills/skills/video-transcript-downloader; npm ci
+cd <this-skill-dir> && npm ci   # the folder holding this SKILL.md
 ```
 
 CLI syntax:
@@ -80,7 +80,8 @@ Prefer MP4 container without re-encoding (remux when possible):
 - Missing `yt-dlp` / `ffmpeg`:
 
 ```bash
-winget install yt-dlp.yt-dlp Gyan.FFmpeg
+winget install yt-dlp.yt-dlp Gyan.FFmpeg      # Windows
+sudo apt install ffmpeg && pipx install yt-dlp  # Ubuntu (apt's yt-dlp is often too old)
 ```
 
 - Verify:

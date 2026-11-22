@@ -7,7 +7,7 @@ description: "Generate a single-file compressed symbol map of a TypeScript or Sw
 
 Source: steipete/agent-scripts (MIT). TypeScript and Swift repos only.
 
-**Node version:** `node map.ts` needs Node >= 23.6 (type stripping). On older Node (this machine has Node 20) run `npx -y tsx <this-skill-dir>/map.ts <repoRoot> [flags]` instead. TS mapping needs the `typescript` package **5.x** (TypeScript 7 has no JS compiler API and silently yields an empty map). It is resolved from the target repo first, then this skill folder. One-time setup in this skill folder: `npm i --no-save --no-package-lock typescript@5`.
+**Node version:** `node map.ts` needs Node >= 23.6 (type stripping). On older Node run `npx -y tsx <this-skill-dir>/map.ts <repoRoot> [flags]` instead. TS mapping needs the `typescript` package **5.x** (TypeScript 7 has no JS compiler API and silently yields an empty map). It is resolved from the target repo first, then this skill folder. One-time setup in this skill folder: `npm i --no-save --no-package-lock typescript@5`.
 
 Compress a TS or Swift repo into one map file an agent can load whole. Backed by `map.ts` next to this file. TS: parse-only TS compiler, no type-check; ~8k files in ~5s; resolves the `typescript` package from the target repo, falling back to this skill dir. Swift: zero-dependency regex/brace-depth scanner built into `map.ts` (no `typescript` needed for pure-Swift repos). Requires Node >= 23.6 (native type stripping) or `npx tsx`. `.ts`/`.tsx` and `.swift` files are detected by extension; a repo may mix both.
 
@@ -17,7 +17,7 @@ Compress a TS or Swift repo into one map file an agent can load whole. Backed by
 node <this-skill-dir>/map.ts <repoRoot> [flags]
 ```
 
-`<this-skill-dir>` is the base directory of this skill as announced when the skill loads (here: `~/agent-skills/skills/project-structure`).
+`<this-skill-dir>` is the base directory of this skill as announced when the skill loads (the folder holding this SKILL.md).
 
 Output: one map file (default `project-structure-map.txt` in cwd) plus a JSON stats line (files, symbols, bytes, approxTokens) on stdout.
 

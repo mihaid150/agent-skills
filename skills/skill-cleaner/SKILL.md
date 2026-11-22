@@ -12,8 +12,10 @@ Every installed skill puts its `description` into the context of every session. 
 ## Run
 
 ```powershell
-python -I ~/agent-skills/skills/skill-cleaner/scripts/skill_cleaner.py --months 3
+python -I <this-skill-dir>/scripts/skill_cleaner.py --months 3
 ```
+
+`<this-skill-dir>` is the folder holding this SKILL.md. On Linux use `python3`.
 
 Flags: `--no-logs` (skip the usage scan, faster), `--months N`, `--max-desc N` (threshold for "long").
 
@@ -30,6 +32,6 @@ It scans `~/.claude/skills` (including the app's `synced/` folder), `~/.claude/p
 ## Before changing anything
 
 - Propose the changes to the user first; never delete on your own.
-- Personal skills live in `~/agent-skills/skills`: edit there.
+- Personal skills live in the `agent-skills` repo (`~/agent-skills/skills`): edit there.
 - Cloud duplicates (claude.ai Plugins → Skills): disable rather than delete.
 - Built-in skills (Anthropic `synced/`, Codex `.system/`) are managed by the apps: leave them.

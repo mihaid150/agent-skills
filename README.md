@@ -49,13 +49,34 @@ Scriptul creează **junction-uri** (fără drepturi de admin) din:
 Dacă există deja un folder real cu același nume, scriptul îl sare. Cu `-Force` îl mută
 într-un backup (`~\.claude\skills-backup-<data>`) și pune junction-ul în loc.
 
+### Ubuntu / Linux / macOS
+
+```bash
+git clone <url-repo-privat> ~/agent-skills
+bash ~/agent-skills/scripts/link-skills.sh          # --force mută folderele existente în backup
+```
+
+Creează **symlink-uri** în `~/.claude/skills` și `~/.codex/skills`. Excepție: `graphify` nu e legat
+(skill-ul din repo e varianta Windows/PowerShell); pe Linux îl instalează CLI-ul, în versiunea potrivită:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh     # uv
+uv tool install graphifyy && graphify install && graphify install --platform codex
+sudo apt install ffmpeg && pipx install yt-dlp       # video-transcript-downloader
+(cd ~/agent-skills/skills/video-transcript-downloader && npm ci)
+(cd ~/agent-skills/skills/project-structure && npm i --no-save --no-package-lock typescript@5)
+```
+
+Regula pentru skill-uri noi (în `~/.claude/CLAUDE.md` și `~/.codex/AGENTS.md`), cu calea `~/agent-skills`:
+skill-urile noi se creează în `~/agent-skills/skills/<nume>/`, apoi se rulează `link-skills.sh`.
+
 ## Flux de lucru
 
 1. Editezi skill-ul în `agent-skills\skills\<skill>` (sau prin junction, e același fișier).
 2. `git commit` + `git push`.
 3. Pe alt calculator: `git pull`. Junction-urile văd imediat schimbarea.
 
-Skill nou: creezi `skills\<nume>\SKILL.md`, apoi rulezi din nou `link-skills.ps1`.
+Skill nou: creezi `skills\<nume>\SKILL.md`, apoi rulezi din nou `link-skills.ps1` (Windows) sau `link-skills.sh` (Linux/macOS).
 
 ## Ce NU intră aici
 

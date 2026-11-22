@@ -7,7 +7,7 @@ description: "Markdown conversion: PDF, Office, HTML, data, OCR, audio, ZIP, You
 
 Source: steipete/agent-scripts (MIT).
 
-**Needs `uv`** (`winget install astral-sh.uv`). Without uv: `pip install "markitdown[all]"`, then call `markitdown` directly instead of `uvx --from "markitdown[all]" markitdown`. Good first step before `llm-wiki` ingest or `deepread` on PDF/DOCX/PPTX.
+**Needs `uv`** (Windows: `winget install astral-sh.uv`; Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`). Without uv: `pip install "markitdown[all]"`, then call `markitdown` directly instead of `uvx --from "markitdown[all]" markitdown`. Good first step before `llm-wiki` ingest or `deepread` on PDF/DOCX/PPTX.
 
 Convert files to Markdown using `uvx --from "markitdown[all]" markitdown` — no installation required.
 

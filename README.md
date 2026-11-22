@@ -22,7 +22,7 @@ Ambele unelte citesc același format, deci aceeași sursă le servește pe amân
 | `oracle` | A doua opinie de la alt model (GPT Pro) cu fișierele proiectului atașate |
 | `create-cli` | Spec de UX pentru unelte CLI: flag-uri, help, ieșire, erori, exit codes |
 | `github-deep-review` | Review de issue/PR cu cauză, proveniență, cea mai bună reparație, dovezi |
-| `project-structure` | Hartă compactă de simboluri pentru repo-uri TypeScript/Swift (Node 20: prin `npx tsx`) |
+| `project-structure` | Hartă compactă de simboluri pentru repo-uri TypeScript/Swift (Node 20: prin `npx tsx`; cere `typescript@5` în folderul skill-ului) |
 | `floorplan` | Hartă interactivă a arhitecturii unei aplicații (Node ≥ 18) |
 | `graphify` | Graf de cunoștințe peste cod/documente (cere CLI `graphify`: `uv tool install graphifyy`) |
 

@@ -15,6 +15,24 @@ Ambele unelte citesc același format, deci aceeași sursă le servește pe amân
 | `llm-wiki` | Second brain în Obsidian întreținut de LLM: ingest, index, lint |
 | `red-green-proof` | Dovedește un bug cu un test care pică, apoi trece, apoi pică iar la revert |
 | `syllabus` | Lecturi suplimentare pentru un curs, exportate ca .docx |
+| `codex-first` | Claude scrie spec-ul și verifică, Codex (`gpt-5.6-sol`) scrie codul |
+| `skill-cleaner` | Audit skill-uri Claude + Codex: duplicate, descrieri lungi, nefolosite |
+| `markdown-converter` | PDF/DOCX/PPTX/XLSX/HTML/YouTube → Markdown cu `markitdown` (cere `uv`) |
+| `video-transcript-downloader` | Transcripturi și descărcări video/audio (cere `npm ci` + `yt-dlp`, `ffmpeg`) |
+| `oracle` | A doua opinie de la alt model (GPT Pro) cu fișierele proiectului atașate |
+| `create-cli` | Spec de UX pentru unelte CLI: flag-uri, help, ieșire, erori, exit codes |
+| `github-deep-review` | Review de issue/PR cu cauză, proveniență, cea mai bună reparație, dovezi |
+| `project-structure` | Hartă compactă de simboluri pentru repo-uri TypeScript/Swift (Node 20: prin `npx tsx`) |
+| `floorplan` | Hartă interactivă a arhitecturii unei aplicații (Node ≥ 18) |
+| `graphify` | Graf de cunoștințe peste cod/documente (cere CLI `graphify`: `uv tool install graphifyy`) |
+
+### Surse externe
+
+- `codex-first`, `skill-cleaner`, `markdown-converter`, `video-transcript-downloader`, `oracle`, `create-cli`, `github-deep-review`, `project-structure`: din [steipete/agent-scripts](https://github.com/steipete/agent-scripts) (MIT, vezi `LICENSE-steipete-agent-scripts.txt`), adaptate pentru Windows; `codex-first` și `skill-cleaner` rescrise.
+- `floorplan`: [haydenschmitty/floorplan](https://github.com/haydenschmitty/floorplan) v0.11.0 (MIT).
+- `graphify`: [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) v0.9.115, varianta Windows (MIT/Apache-2.0). Nu rula `graphify install`: skill-ul e gestionat aici.
+
+Actualizare: copiezi din nou folderul skill-ului din release-ul nou și păstrezi linia `Source:` din `SKILL.md`.
 
 ## Instalare pe un calculator nou
 

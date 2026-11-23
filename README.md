@@ -25,10 +25,12 @@ Both tools read the same format, so one source serves both.
 | `project-structure` | Compact symbol map for TypeScript/Swift repos (Node 20: via `npx tsx`; needs `typescript@5` in the skill folder) |
 | `floorplan` | Interactive architecture map of an app (Node ≥ 18) |
 | `graphify` | Knowledge graph over code and documents (needs the `graphify` CLI: `uv tool install graphifyy`) |
+| `repo-polish` | De-vibe-code a repo: audit structure, AI-style comments, dead code, junk files and README; fix approved items without changing behavior |
 
 ### External sources
 
 - `codex-first`, `skill-cleaner`, `markdown-converter`, `video-transcript-downloader`, `oracle`, `create-cli`, `github-deep-review`, `project-structure`: from [steipete/agent-scripts](https://github.com/steipete/agent-scripts) (MIT, see `LICENSE-steipete-agent-scripts.txt`), adapted for Windows and Linux; `codex-first` and `skill-cleaner` rewritten.
+- `repo-polish`: adapted from `deep-refactor` / `doc-refactor` in [cedricfarinazzo/agile-skills](https://github.com/cedricfarinazzo/agile-skills) (MIT), slimmed down for personal and research repos; `scripts/audit.py` is new.
 - `floorplan`: [haydenschmitty/floorplan](https://github.com/haydenschmitty/floorplan) v0.11.0 (MIT).
 - `graphify`: [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) v0.9.115, Windows variant (MIT/Apache-2.0). On Windows, do not run `graphify install`: the skill is managed here.
 

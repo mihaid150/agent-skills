@@ -8,7 +8,6 @@ Usage: python skill_cleaner.py [--months 3] [--no-logs] [--max-desc 300]
 """
 import argparse
 import difflib
-import json
 import os
 import re
 import time

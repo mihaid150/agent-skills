@@ -88,7 +88,7 @@ Then ask the user which IDs to apply. Group suggestions: "quick wins", "structur
 
 Lowercase kebab-case, at most ~40 characters, saying what changes. If the repo already has a branch-naming convention (check `git branch -a` and recent merged PRs), follow it instead. If the user prefers a single branch, use `refactor/codebase-cleanup`. Before creating a branch, check that the name is not already taken.
 
-Commit messages follow the repo's existing style; if it has none, use the same type prefixes (`refactor: extract shared weight averaging`, `chore: untrack __pycache__`, `docs: rewrite README from code`).
+Commit messages follow the repo's existing style; if it has none, use the same type prefixes (`refactor: extract shared weight averaging`, `chore: untrack __pycache__`, `docs: rewrite README from code`). No `Co-Authored-By:` lines for Claude or any AI and no `Claude-Session:` lines: the user is the only author (`AGENTS.md`).
 
 - One commit per logical change or per category (e.g. "Remove AI narration comments", "Delete unused imports", "Extract duplicated aggregation into shared/"). Never mix reformatting with logic changes in one commit.
 - Formatting (`ruff format`, `black`, `prettier`) only if the project already uses it or the user agrees, and as its own commit.

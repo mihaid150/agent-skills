@@ -26,9 +26,8 @@ Never jump from audit to fix without the user approving the item IDs.
 ## Phase 0 — Safety and baseline
 
 1. `git status` must be clean. If not: STOP and ask the user to commit or stash.
-2. Work on a branch: `git switch -c repo-polish/<YYYY-MM-DD>`.
-3. Find how the project runs and is checked: tests (`pytest`, `npm test`, ...), entry points (`main.py`, scripts in README, Dockerfiles, `docker-compose`), linters already configured (`ruff`, `black`, `eslint`, `pre-commit`).
-4. Record a **baseline**: run the tests (or the cheapest real entry point, e.g. `python -m <pkg> --help`, an import of every module) and save command + result. No tests and nothing runnable? Say so in the report: every fix then needs extra care, and "add a smoke test" becomes finding #1.
+2. Find how the project runs and is checked: tests (`pytest`, `npm test`, ...), entry points (`main.py`, scripts in README, Dockerfiles, `docker-compose`), linters already configured (`ruff`, `black`, `eslint`, `pre-commit`).
+3. Record a **baseline**: run the tests (or the cheapest real entry point, e.g. `python -m <pkg> --help`, an import of every module) and save command + result. No tests and nothing runnable? Say so in the report: every fix then needs extra care, and "add a smoke test" becomes finding #1.
 
 ## Phase 1 — Audit
 
@@ -78,6 +77,19 @@ Then ask the user which IDs to apply. Group suggestions: "quick wins", "structur
 
 ## Phase 3 — Fix (approved IDs only)
 
+**Branches.** The audit stays on the current branch (it changes no code). Before the first edit, branch off the default branch, one branch per kind of change, so each can become its own focused PR. Name the branch after the change, not after this skill:
+
+| Kind of change | Branch | Example |
+|---|---|---|
+| Behavior-preserving code cleanup | `refactor/<scope>` | `refactor/fog-aggregation`, `refactor/dead-code` |
+| Repo hygiene: `.gitignore`, junk files, dependency files | `chore/<scope>` | `chore/repo-hygiene`, `chore/pin-dependencies` |
+| README and other docs | `docs/<scope>` | `docs/readme` |
+| Approved defects | `fix/<scope>` | `fix/edge-silent-except` |
+
+Lowercase kebab-case, at most ~40 characters, saying what changes. If the repo already has a branch-naming convention (check `git branch -a` and recent merged PRs), follow it instead. If the user prefers a single branch, use `refactor/codebase-cleanup`. Before creating a branch, check that the name is not already taken.
+
+Commit messages follow the repo's existing style; if it has none, use the same type prefixes (`refactor: extract shared weight averaging`, `chore: untrack __pycache__`, `docs: rewrite README from code`).
+
 - One commit per logical change or per category (e.g. "Remove AI narration comments", "Delete unused imports", "Extract duplicated aggregation into shared/"). Never mix reformatting with logic changes in one commit.
 - Formatting (`ruff format`, `black`, `prettier`) only if the project already uses it or the user agrees, and as its own commit.
 - Renames/moves: update every pin from the report in the same commit; leave a re-export at the old import path when external code may import it.
@@ -87,7 +99,7 @@ Then ask the user which IDs to apply. Group suggestions: "quick wins", "structur
 
 ## Phase 4 — README
 
-Rules in [references/readme.md](references/readme.md). Short version:
+Rules in [references/readme.md](references/readme.md). Work on a `docs/readme` branch (see phase 3 naming). Short version:
 
 1. **Inventory**: every `.md` in the repo and who reads it (newcomer on GitHub, a reviewer, an agent via `CLAUDE.md`/`AGENTS.md`).
 2. **Verify every claim**: each command is run in the repo, each path exists, each flag exists in the argparse/CLI source, each link resolves. False claims are fixed first; a confident false statement is worse than none.
